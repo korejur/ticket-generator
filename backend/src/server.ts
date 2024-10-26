@@ -3,7 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import routes from './endpoints/index';
 import { auth0Config } from './config/auth0';
-import { auth } from 'express-openid-connect';
+import { auth } from 'express-oauth2-jwt-bearer';
 
 dotenv.config();
 
