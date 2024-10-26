@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Ticket System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-6">QR Ticket System</h1>
+        
+        <!-- Total Tickets Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">Total Tickets Generated</h2>
+            <p class="text-4xl font-bold text-blue-600"><%= totalTickets %></p>
+        </div>
+
+        <!-- Latest Ticket Section -->
+        <% if (latestTicket && qrCode) { %>
+            <div class="bg-white rounded-lg shadow-md p-6 mt-6">                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Ticket Information -->
+                    <div>
+                        <div class="space-y-2">
+                            <p><strong>ID:</strong> <%= latestTicket.id %></p>
+                        </div>
+                    </div>
+
+                    <!-- QR Code Display -->
+                    <div class="flex flex-col items-center justify-center">
+                        <h3 class="font-semibold mb-4">Ticket QR Code</h3>
+                        <img src="<%= qrCode %>" 
+                             alt="Ticket QR Code" 
+                             class="border-2 border-gray-200 rounded-lg">
+                        <p class="mt-2 text-sm text-gray-600">
+                            Scan to view ticket details
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+</body>
+</html>
